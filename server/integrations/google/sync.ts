@@ -1520,7 +1520,6 @@ export const handleGoogleServiceAccountChanges = async (
         errorMessage ===
         "Sync token is no longer valid, a full sync is required."
       ) {
-        console.log("continuing")
         continue
       }
 

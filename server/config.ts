@@ -4,12 +4,16 @@ let vespaBaseHost = "0.0.0.0"
 let postgresBaseHost = "0.0.0.0"
 let port = 3000
 let host = "http://localhost:3000"
+let dbUsername = "postgres"
+let dbPassword = "postgres"
 let redirectUri = process.env.GOOGLE_REDIRECT_URI!
 let postOauthRedirect = "/"
 if (process.env.NODE_ENV === "production") {
   postgresBaseHost = process.env.DATABASE_HOST!
   vespaBaseHost = process.env.VESPA_HOST!
-  port = 80
+  port = parseInt(process.env.PORT!, 10) || 80
+  dbUsername = process.env.DATABASE_USER!
+  dbPassword = process.env.DATABASE_PASSWORD!
   host = process.env.HOST!
   redirectUri = process.env.GOOGLE_PROD_REDIRECT_URI!
 }

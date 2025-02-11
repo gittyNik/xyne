@@ -6,6 +6,7 @@ let port = 3000
 let host = "http://localhost:3000"
 let dbUsername = "postgres"
 let dbPassword = "postgres"
+let dbName = "xyne"
 let redirectUri = process.env.GOOGLE_REDIRECT_URI!
 let postOauthRedirect = "/"
 if (process.env.NODE_ENV === "production") {
@@ -14,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
   port = parseInt(process.env.PORT!, 10) || 80
   dbUsername = process.env.DATABASE_USER!
   dbPassword = process.env.DATABASE_PASSWORD!
+  dbName = process.env.DATABASE_NAME!
   host = process.env.HOST!
   redirectUri = process.env.GOOGLE_PROD_REDIRECT_URI!
 }
@@ -58,6 +60,9 @@ export default {
   JwtPayloadKey: "jwtPayload",
   vespaBaseHost,
   postgresBaseHost,
+  dbUsername,
+  dbPassword,
+  dbName,
   port,
   host,
   bedrockSupport,
